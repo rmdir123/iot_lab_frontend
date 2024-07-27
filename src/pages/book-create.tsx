@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
-import { Button, Checkbox, Container, Divider, NumberInput, TextInput } from "@mantine/core";
+import { Button, Checkbox, Container, Divider, NumberInput, TextInput, Select } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
@@ -18,12 +18,18 @@ export default function BookCreatePage() {
       author: "",
       year: 2024,
       is_published: false,
+      description: "",
+      summary: "",
+      booktype: "",
     },
 
     validate: {
       title: isNotEmpty("กรุณาระบุชื่อหนังสือ"),
       author: isNotEmpty("กรุณาระบุชื่อผู้แต่ง"),
       year: isNotEmpty("กรุณาระบุปีที่พิมพ์หนังสือ"),
+      description: isNotEmpty("กรุณาระบุรายละเอียด"),
+      summary: isNotEmpty("กรุณาระบุเรื่องย่อ"),
+      booktype: isNotEmpty("กรุณาระบุประเภทหนังสือ"),
     },
   });
 
@@ -91,7 +97,34 @@ export default function BookCreatePage() {
               {...bookCreateForm.getInputProps("year")}
             />
 
-            {/* TODO: เพิ่มรายละเอียดหนังสือ */}
+            <TextInput
+              label="รายละเอียดหนังสือ"
+              placeholder="รายละเอียดหนังสือ"
+              {...bookCreateForm.getInputProps("description")}
+            />
+
+            <TextInput
+              label="เรื่องย่อ"
+              placeholder="เรื่องย่อ"
+              {...bookCreateForm.getInputProps("summary")}
+            />
+
+            <Select
+              label="ประเภทหนังสือ"
+              placeholder="เลือกประเภทหนังสือ"
+              data={[
+                { value: 'fiction', label: 'นิยาย' },
+                { value: 'non-fiction', label: 'สารคดี' },
+                { value: 'biography', label: 'ชีวประวัติ' },
+                { value: 'science', label: 'วิทยาศาสตร์' },
+                { value: 'history', label: 'ประวัติศาสตร์' },
+                { value: 'fantasy', label: 'แฟนตาซี' },
+                { value: 'mystery', label: 'ลึกลับ' },
+                { value: 'romance', label: 'โรแมนติก' },
+              ]}
+              {...bookCreateForm.getInputProps("booktype")}
+            />
+
             {/* TODO: เพิ่มเรื่องย่อ */}
             {/* TODO: เพิ่มหมวดหมู่(s) */}
 
