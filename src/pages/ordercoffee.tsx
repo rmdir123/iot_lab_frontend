@@ -4,7 +4,7 @@ import cafeBackgroundImage from "../assets/images/bg-cafe-2.jpg";
 import useSWR from "swr";
 import { Order } from "../lib/models";
 import Loading from "../components/loading";
-import { Alert , TextInput} from "@mantine/core";
+import { Alert, TextInput } from "@mantine/core";
 import { IconAlertTriangleFilled } from "@tabler/icons-react";
 
 export default function BooksPage() {
@@ -112,7 +112,7 @@ export default function BooksPage() {
                         <TextInput 
                             label="หมายเหตุ"
                             placeholder="kkkk"
-                    />
+                        />
                         <div>Total for Capuchino: ${totalByCoffeeType.capuchino}</div>
                     </div>
                     <div className="flex flex-col items-start mb-5">
@@ -128,7 +128,7 @@ export default function BooksPage() {
                          <TextInput 
                             label="หมายเหตุ"
                             placeholder="kkkk"
-                    />
+                        />
                         <div>Total for Latte: ${totalByCoffeeType.latte}</div>
                     </div>
                     <div className="flex flex-col items-start mb-5">
@@ -144,7 +144,7 @@ export default function BooksPage() {
                          <TextInput 
                             label="หมายเหตุ"
                             placeholder="kkkk"
-                    />
+                        />
                         <div>Total for Americano: ${totalByCoffeeType.americano}</div>
                     </div>
 
