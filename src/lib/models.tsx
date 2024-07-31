@@ -8,3 +8,21 @@ export interface Book {
   summary: string;
   booktype: string;
 }
+
+export interface Coffee {
+  id: number;
+  name: string;
+  price: number;
+}
+
+export interface Order {
+  order_id: number;
+}
+
+export interface OrderCoffee {
+  id: number;
+  order_id: number;
+  coffee_id: number;
+  quantity: number;
+  total: number;
+}
