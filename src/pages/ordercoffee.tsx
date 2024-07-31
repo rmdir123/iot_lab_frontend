@@ -33,10 +33,10 @@ export default function BooksPage() {
     const overallTotalPrice = Object.values(totalByCoffeeType).reduce((total, price) => total + price, 0);
 
     // Handle quantity change
-    const handleQuantityChange = (coffee, value) => {
+    const handleQuantityChange = (coffee: keyof typeof quantities, value: number) => {
         setQuantities(prevQuantities => ({
             ...prevQuantities,
-            [coffee]: value >= 0 ? value : 0 // Prevent negative quantities
+            [coffee]: value >= 0 ? value : 0
         }));
     };
 
